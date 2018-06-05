@@ -9,11 +9,68 @@
     margin-top: 10%;
 }
 
+body {
+    padding-top: 54px;
+  }
+  @media (min-width: 992px) {
+    body {
+      padding-top: 56px;
+    }
+  }
+
+.navbar-brand {
+    text-align: left;
+    margin-left:-8%;
+   
+}
+.navbar-toggler:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
 
 
-body > .navbar > .navbar-brand{
-margin-left:-90px !important;
-margin-right:-90px !important;  
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    content: "";
+    background: no-repeat center center;
+    background-size: 100% 100%;
+   
+}
+/* .fas {
+    background-color: white;
+} */
+.navbar-toggler:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.bg-gray9 {
+    background-color: #212529;
+}
+.white {
+    color: #fff;
+}
+.navbar-dark .navbar-toggler {
+    color: rgba(255,255,255,.5);
+    border-color: rgba(255,255,255,.1);
+}
+[type=reset], [type=submit], button, html [type=button] {
+    -webkit-appearance: button;
+}
+.navbar-toggler {
+    padding: .25rem .75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+button, select {
+    text-transform: none;
+}
+button, input {
+    overflow: visible;
 }
 
 .navbar-expand-lg {
