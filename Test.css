@@ -1,0 +1,165 @@
+.container-fluid2 {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10%;
+}
+
+.slide {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.active-slide {
+    opacity: 1;
+    z-index: 2;
+}
+
+.quiz-container {
+    position: relative;
+    height: 250px;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+#previous, #next, #submit {
+    color: orange;
+    display: inline-block;
+}
+/* .input {
+    width: 200px;
+} */
+
+
+.question {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.answers {
+    font-size: 16px;
+   font-weight: bold;
+}
+
+
+
+
+
+ input[type="radio"]:checked:before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    position: absolute;
+    background: rgb(20, 136, 151);
+    left: 5px;
+    top: 6px;
+    border-radius: 100%;
+} 
+
+
+
+.navbar-brand {
+    text-align: left;
+    margin-left:-8%;
+   
+}
+.navbar-toggler:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    content: "";
+    background: no-repeat center center;
+    background-size: 100% 100%;
+   
+}
+/* .fas {
+    background-color: white;
+} */
+.navbar-toggler:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.bg-gray9 {
+    background-color: #212529;
+}
+.white {
+    color: #fff;
+}
+.navbar-dark .navbar-toggler {
+    color: rgba(255,255,255,.5);
+    border-color: rgba(255,255,255,.1);
+}
+/* [type=reset], [type=submit], button, html [type=button] {
+    -webkit-appearance: button;
+} */
+.navbar-toggler {
+    padding: .25rem .75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+button, select {
+    text-transform: none;
+}
+button, input {
+    overflow: visible;
+}
+
+.navbar-expand-lg {
+    background-color: rgb(32, 30, 30);
+    border-color: rgb(32, 30, 30);
+    border-radius: 0;
+}
+
+.navbar-expand-lg .navbar-brand,
+.navbar-expand-lg .navbar-brand:hover,
+.navbar-expand-lg .navbar-brand:focus {
+    color: #fb866b ;
+}
+
+.navbar-expand-lg .navbar-nav > li > a {
+    color: #FFF;
+}
+
+.navbar-expand-lg .navbar-nav > li > a:hover,
+.navbar-expand-lg .navbar-nav > li > a:focus {
+    background-color: rgb(32, 30, 30);
+}
+
+.navbar-expand-lg .navbar-nav > .active > a,
+.navbar-expand-lg .navbar-nav > .active > a:hover,
+.navbar-expand-lg .navbar-nav > .active > a:focus {
+    color: #fb866b;
+    background-color: rgb(32, 30, 30);
+}
+
+.navbar-expand-lg .navbar-text {
+    color: #FFF;
+}
+
+.navbar-expand-lg .navbar-toggle {
+    border-color: rgb(32, 30, 30);
+}
+
+.navbar-expand-lg .navbar-toggle:hover,
+.navbar-expand-lg .navbar-toggle:focus {
+    background-color: rgb(32, 30, 30);
+}
+
+.navbar-expand-lg .navbar-toggle .icon-bar {
+    background-color: #FFF;
+}

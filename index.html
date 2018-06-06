@@ -55,13 +55,14 @@
     </nav>
 
 
+    <!-- <section> -->
 
     <div class="section" id="carousel">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card page-carousel">
-                        <div id="carouselExampleIndicators" class="carousel slide1" data-ride="carousel">
+                        <div id="carouselExampleIndicators" class="carousel slideOne"   data-pause="hover" data-interval= "4000" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -69,21 +70,21 @@
                             </ol>
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active">
-                                    <img class="d-block img-fluid" src="C:/Users/Training/code/homework/ultimate-trivia/imgs/easy.jpg" alt="First slide">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <button type="button" class="btn btn-info buttonCard" data-toggle="modal" data-target="#exampleModal" id="easyMode">Play Easy Mode</button>
+                                    <img class="d-block img-fluid" src="C:/Users/Training/code/homework/ultimate-trivia/imgs/easy.jpg" alt="Easy Like Sunday Morning">
+                                    <div class="carousel-caption">
+                                        <button type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#exampleModal" id="easyMode">Play Easy Mode</button>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block img-fluid" src="C:/Users/Training/code/homework/ultimate-trivia/imgs/tough.jpg" alt="Second slide">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <button type="button" class="btn btn-info buttonCard" data-toggle="modal" data-target="#exampleModal" id="toughMode">Play Tough Mode</button>
+                                    <img class="d-block img-fluid" src="C:/Users/Training/code/homework/ultimate-trivia/imgs/tough.jpg" alt="Tough as Nails">
+                                    <div class="carousel-caption">
+                                        <button type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#exampleModal" id="toughMode">Play Tough Mode</button>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block img-fluid" src="C:/Users/Training/code/homework/ultimate-trivia/imgs/impossible.jpg" alt="Third slide">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <button type="button" class="btn btn-info buttonCard" data-toggle="modal" data-target="#exampleModal" id="impossibleMode">Play Impossible Mode</button>
+                                    <img class="d-block img-fluid" src="C:/Users/Training/code/homework/ultimate-trivia/imgs/impossible.jpg" alt="Attempt the Impossible">
+                                    <div class="carousel-caption">
+                                        <button type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#exampleModal" id="impossibleMode">Play Impossible Mode</button>
                                     </div>
                                 </div>
                             </div>
@@ -103,136 +104,78 @@
         </div>
     </div>
 
-    <!-- <section> -->
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title text-center" id="exampleModalLabel">Progress</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                             <div class="quiz-container">
-                                    <div class="modal-body" id="quiz">
-                                      
-                                    </div></div>
-                            <div class="modal-footer">
-                                <div class="left-side">
-                                    <button type="button" class="btn btn-default btn-link"  id="previous" data-dismiss="modal"> Previous Question</button>
-                                </div>
-                                <div class="divider"></div>
-                                <div class="right-side">
-                                    <button type="button" class="btn btn-danger btn-link" id="submit">Submit Answer</button>
-                                </div>
-                            </div>
-                        </div>
+
+    <div class="modal fade bg-secondary" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+        <div class="modal-overlay" id="modal-overlay">
+        </div>
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLabel">Progress</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="quiz-container">
+                    <div class="modal-body" id="quiz">
+
+                    </div>
+                    
+                </div>
+
+                <div class="modal-footer">
+                   
+                        <button type="button" class="btn btn-default btn-link" id="previous"> Previous Question</button>
+                    
+                    <div class="divider"></div>
+                    
+                        <button type="button" class="btn btn-default btn-link" id="next">Next Question</button>
+
+                    <div class="divider"></div>
+                    
+                        <button type="button" class="btn btn-danger btn-link" data-dismiss="exampleModel" data-toggle="myExampleModal" id="submit">Submit Answer</button>
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title text-center" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                             <div class="quiz-container">
-                                    <div class="modal-body" id="results">
-                                      
-                                    </div></div>
-                            <div class="modal-footer">
-                                <!-- <div class="left-side">
+        </div>
+    </div>
+
+    <div class="modal fade bg-secondary"  id="myExampleModal" tabindex="-1" role="dialog" aria-labelledby="myExampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-overlay" id="modal-overlay">
+        </div>
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="myExampleModal">Progress</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="quiz-container">
+                    <div class="modal-body" id="results">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <div class="left-side">
                                     <button type="button" class="btn btn-default btn-link"  id="previous" data-dismiss="modal">Previous Question</button>
                                 </div>
                                 <div class="center">
                                         <button type="button" class="btn btn-default btn-link"  id="submit" data-dismiss="modal">Submit Answer</button>
                                     </div>
                                 <div class="divider"></div> -->
-                                <div class="right-side">
-                                    <button type="button" class="btn btn-danger btn-link" id="playAgain">Play Again</button>
-                                </div>
-                            </div>
-                        </div>
+                  
+                        <button type="button" class="btn btn-danger btn-link" id="playAgain">Play a New Game </button>
                     </div>
                 </div>
             </div>
-    <!-- <div class="container-fluid2">
-      <div class="card-deck">
-        <div class="card "> -->
-    <!-- <img class="card-img-top" src=".../100px200/" alt="Card image cap"> -->
-    <!-- <div class="card-body ">
-            <h5 class="card-title">Easy</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <button type="button" class="btn btn-info buttonCard" data-toggle="modal" data-target="#exampleModal" id="easyMode">Play Easy Mode</button>
-          </div>
         </div>
+    </div>
 
-        <div class="card "> -->
-    <!-- <img class="card-img-top" src=".../100px200/" alt="Card image cap"> -->
-    <!-- <div class="card-body ">
-            <h5 class="card-title">A Little Tough</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <button type="button" class="btn btn-info buttonCard" data-toggle="modal" data-target="#exampleModal" id="toughMode">Play Tough Mode</button>
-          </div>
-        </div>
 
-        <div class="card "> -->
-    <!-- <img class="card-img-top" src=".../100px200/" alt="Card image cap"> -->
-    <!-- <div class="card-body ">
-            <h5 class="card-title">Impossible</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            <button type="button" class="btn btn-info buttonCard" data-toggle="modal" data-target="#exampleModal" id="impossibleMode">Play Impossible Mode</button>
-          </div>
-        </div>
-      </div></div></section>
 
-      
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Question</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div><div class="quiz-container">
-                <div class="modal-body" id="quiz">
-                  
-                </div></div>
-                <div class="modal-footer">
-                  
-                        <button type="button" class="btn btn-primary" id="previous">Previous Question</button>
-                        <button type="button" class="btn btn-primary" id="next">Next Question</button>
-                        <button type="button" class="btn btn-primary" id="submit">Submit Quiz</button>
-                </div>
-              </div></div>
-            </div>
-         
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Question</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div><div class="quiz-container">
-                    <div class="modal-body" id="results">
-                      
-                    </div></div>
-                    <div class="modal-footer">
-                      
-                      <button type="button" class="btn btn-primary" id="play-again">Play Again</button>
-                  
-                    </div>
-                  </div></div>
-                </div> -->
-
-    <!--  -->
 
 
 

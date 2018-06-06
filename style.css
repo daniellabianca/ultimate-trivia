@@ -1,14 +1,16 @@
 
 
-.container-fluid2 {
+.container-fluid {
     width: 100%;
+    
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 10%;
-}
-.slide{
+    margin-top: 4%;
+} 
+
+.slide {
     position: absolute;
     left: 0px;
     top: 0px;
@@ -16,21 +18,24 @@
     z-index: 1;
     opacity: 0;
     transition: opacity 0.5s;
+    text-align: center;
   }
-  .active-slide{
+  .active-slide {
     opacity: 1;
     z-index: 2;
+    text-align: center;
   }
   .quiz-container{
     position: relative;
     height: 250px;
     margin-top: 15px;
     margin-left: 20px;
+    text-align: center;
   }
-  .input {
+  /* .input {
       width: 200px;
-  }
-body {
+  } */
+/* body {
     padding-top: 54px;
   }
 
@@ -39,47 +44,117 @@ body {
     body {
       padding-top: 56px;
     }
-  }
+  } */
 
   .question {
       font-weight: bold;
       font-size: 18px;
+      text-align: center;
   }
   
-  .answers {
-    
+  .btn, .btn-group {
+    text-align: left;
     font-size: 16px;
 }
 
-  .radio{
-    color: #05324d;
-    font-size:16px;
-    position:relative;
-  }
-  .radio span{
-    position:relative;
-     padding-left:20px;
-  }
-  .radio span:after{
-    content:'';
-    width:15px;
-    height:15px;
-    border:2px solid;
-    position:absolute;
-    left:0;
-    top:1px;
-    border-radius:100%;
-  }
-  .radio input[type="radio"]{
-     cursor: pointer; 
+
+
+.radio input[type="radio"] {
+    cursor: pointer; 
     position:absolute;
     width:100%;
     height:100%;
     z-index: 1;
     opacity: 0;
     filter: alpha(opacity=0);
-    
+    text-align: center;
+}
+
+
+.radio span:after {
+    content: '';
+    /* width: 15px;
+    height: 15px; */
+    border: 1px solid;
+    position: absolute;
+    left: 0;
+    top: 1px;
+    border-radius: 100%;
+    text-align: center;
+}
+
+.radio input[type="radio"] {
+    cursor: pointer;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    text-align: center;
+}
+[type="radio"] {
+    border: 0; 
+    clip: rect(0 0 0 0); 
+    height: 1px; margin: -1px; 
+    overflow: hidden; 
+    padding: 0; 
+    position: absolute; 
+    width: 1px;
+    text-align: center;
   }
+  
+label {
+    display: block;
+    cursor: pointer;
+    line-height: 1;
+    font-size: 1em;
+    text-align: center;
+  }
+  
+  [type="radio"] + span {
+    display: block;
+    position:relative;
+    text-align: center;
+     /* padding-left:20px; */
+  }
+
+
+  .modalClosed {
+     display: none;
+  }
+
+  
+  /* the checked style using the :checked pseudo class */
+  .radio1, input[type="radio"]:checked + span {
+    
+    /* left:5px;
+    top:6px; */
+    font-weight: bold;
+    color: rgb(4, 61, 68);
+    text-align: center;
+  }
+
+
+  [type="radio"]:checked + span:before {
+    /* background: rgb(20, 136, 151); */
+    /* box-shadow: 0 0 0 0.12em #000; */
+  }
+
+  .radio1, input[type="radio"] + span:before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.25em;
+    text-align: center;
+    /* border-radius: 1em;
+    border: 0.125em solid rgb(52, 196, 201);
+    box-shadow: 0 0 0 0.12em #000;
+    margin-right: 0.75em;
+    color: rgb(20, 136, 151); */
+    
+}
   .carousel-caption .title,
   .carousel-caption .info-title {
     color: #FFFFFF;
@@ -101,13 +176,16 @@ body {
 
   #carousel{
     padding-top: 70px;
+    
 }
 .carousel {
-    position: relative
+    position: relative;
+  
 }
 
 .carousel-inner {
     position: relative;
+    
     width: 100%;
     overflow: hidden
 }
@@ -118,6 +196,7 @@ body {
     -ms-flex-align: center;
     align-items: center;
     width: 100%;
+   
     transition: -webkit-transform .6s ease;
     transition: transform .6s ease;
     transition: transform .6s ease, -webkit-transform .6s ease;
@@ -152,9 +231,7 @@ body {
     background-color: #3f3c3b;
   }
   
-  #carousel{
-    padding-top: 70px;
-  }
+  
   
   .carousel-control.left {
     height: 30px;
@@ -201,16 +278,22 @@ body {
   .carousel-inner .carousel-item img {
     border-radius: 12px;
     box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
-    height: 400px;
-    width: 100%;
+    height: 75%;
+    width: 750%;
   }
+
+  #results {
+      font-size: 26;
+      font-weight: bold;
+      text-align: center;
+  }   
   
   .carousel-indicators {
     bottom: 0px;
   }
   
   .carousel-indicators li {
-    background-color: #FFFFFF;
+    background-color: rgb(63, 199, 176);
     border: 0 none;
   }
   
@@ -248,7 +331,8 @@ body {
     border: 0 none;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.15), 0 0 1px 1px rgba(0, 0, 0, 0.1);
-  }
+   }
+   
   .modal-content .modal-header h6 {
     margin-top: 10px;
   }
@@ -266,6 +350,7 @@ body {
     border-top: 1px solid #DDDDDD;
     padding: 0px;
   }
+
   .modal-footer.no-border-footer {
     border-top: 0 none;
   }
@@ -280,7 +365,11 @@ body {
     padding: 20px;
     width: 100%;
   }
-  
+  /* .modal-backdrop, .modal-backdrop.in {
+      background-color:rgba(54, 62, 62, .8);
+     
+  } */
+
   .modal-footer .divider {
     background-color: #DDDDDD;
     display: inline-block;
@@ -290,7 +379,7 @@ body {
     width: 1px;
   }
   
-  .modal.fade .modal-dialog {
+  /* .modal.fade .modal-dialog {
     transform: none;
     -webkit-transform: none;
     -moz-transform: none;
@@ -301,11 +390,36 @@ body {
     -webkit-transform: none;
     -moz-transform: none;
   }
-  
-  .modal-backdrop.in {
-    opacity: 0.25;
+   */
+   .bg-secondary  {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(24, 131, 131);
+  opacity: 0.95;
+    width: 100%;
+    height: 100%;
+    z-index: 4040;
   }
-  
+/* .modal-backdrop-transparent {
+   position: fixed;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background-color: transparent;
+   opacity: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 1040;
+ } */
+
+  .modal-transition {
+   transition: all 0.4s ease;
+ } 
+   
   .modal-register .modal-footer {
     text-align: center;
     margin-bottom: 25px;
@@ -325,21 +439,6 @@ body {
     content: " ";
   }
 
-  .radio input[type="radio"]:checked + span{
-    color:rgb(20, 136, 151);  
-    font-weight: bold;
-  }
-  .radio input[type="radio"]:checked + span:before{
-      content:'';
-    width:6px;
-    height:6px;
-    position:absolute;
-    background:rgb(20, 136, 151);
-    left:5px;
-    top:6px;
-    border-radius:100%;
-  
-  }
 .navbar-brand {
     text-align: left;
     margin-left:-8%;
@@ -361,9 +460,8 @@ body {
     background-size: 100% 100%;
    
 }
-/* .fas {
-    background-color: white;
-} */
+
+
 .navbar-toggler:not(:disabled):not(.disabled) {
     cursor: pointer;
 }
@@ -377,9 +475,9 @@ body {
     color: rgba(255,255,255,.5);
     border-color: rgba(255,255,255,.1);
 }
-[type=reset], [type=submit], button, html [type=button] {
+/* [type=reset], [type=submit], button, html [type=button] {
     -webkit-appearance: button;
-}
+} */
 .navbar-toggler {
     padding: .25rem .75rem;
     font-size: 1.25rem;
@@ -438,4 +536,4 @@ button, input {
 
 .navbar-expand-lg .navbar-toggle .icon-bar {
     background-color: #FFF;
-}
+} 
