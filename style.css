@@ -8,16 +8,338 @@
     margin-left: auto;
     margin-top: 10%;
 }
-
+.slide{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  .active-slide{
+    opacity: 1;
+    z-index: 2;
+  }
+  .quiz-container{
+    position: relative;
+    height: 250px;
+    margin-top: 15px;
+    margin-left: 20px;
+  }
+  .input {
+      width: 200px;
+  }
 body {
     padding-top: 54px;
   }
+
+
   @media (min-width: 992px) {
     body {
       padding-top: 56px;
     }
   }
 
+  .question {
+      font-weight: bold;
+      font-size: 18px;
+  }
+  
+  .answers {
+    
+    font-size: 16px;
+}
+
+  .radio{
+    color: #05324d;
+    font-size:16px;
+    position:relative;
+  }
+  .radio span{
+    position:relative;
+     padding-left:20px;
+  }
+  .radio span:after{
+    content:'';
+    width:15px;
+    height:15px;
+    border:2px solid;
+    position:absolute;
+    left:0;
+    top:1px;
+    border-radius:100%;
+  }
+  .radio input[type="radio"]{
+     cursor: pointer; 
+    position:absolute;
+    width:100%;
+    height:100%;
+    z-index: 1;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    
+  }
+  .carousel-caption .title,
+  .carousel-caption .info-title {
+    color: #FFFFFF;
+  }
+  
+  .form-control,
+.input-group-addon,
+.tagsinput,
+.navbar,
+.navbar .alert,
+.carousel-control.right,
+.carousel-control.left {
+  -webkit-transition: all 300ms linear;
+  -moz-transition: all 300ms linear;
+  -o-transition: all 300ms linear;
+  -ms-transition: all 300ms linear;
+  transition: all 300ms linear;
+}
+
+  #carousel{
+    padding-top: 70px;
+}
+.carousel {
+    position: relative
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden
+}
+
+.carousel-item {
+    position: relative;
+    display: none;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    transition: -webkit-transform .6s ease;
+    transition: transform .6s ease;
+    transition: transform .6s ease, -webkit-transform .6s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    perspective: 1000px
+}
+
+.carousel-item-next, .carousel-item-prev, .carousel-item.active {
+    display: block
+}
+
+.carousel-item-next, .carousel-item-prev {
+    position: absolute;
+    top: 0
+}
+
+.carousel-item-next.carousel-item-left, .carousel-item-prev.carousel-item-right {
+    -webkit-transform: translateX(0);
+    transform: translateX(0)
+}
+
+.carousel-control {
+    background-color: #3f3c3b;
+    border-radius: 50%;
+    opacity: 1;
+    text-shadow: none;
+  }
+  .carousel-control:hover, .carousel-control:focus {
+    opacity: 1;
+    background-color: #3f3c3b;
+  }
+  
+  #carousel{
+    padding-top: 70px;
+  }
+  
+  .carousel-control.left {
+    height: 30px;
+    top: 58%;
+    width: 30px;
+    left: 20px;
+    opacity: 0;
+  }
+  
+  .carousel-control.right {
+    height: 30px;
+    right: 20px;
+    top: 58%;
+    width: 30px;
+    opacity: 0;
+  }
+  
+  .carousel-control .icon-prev, .carousel-control .icon-next, .carousel-control .fa, .carousel-control .fa {
+    display: inline-block;
+    z-index: 5;
+  }
+  
+  .carousel-control-prev .fa {
+    font-size: 26px;
+    margin: 29px;
+    padding-right: 3px;
+  }
+  
+  .carousel-control-next .fa {
+    font-size: 26px;
+    margin: 29px;
+    padding-left: 3px;
+  }
+  
+  .carousel-control.left, .carousel-control.right {
+    background-image: none;
+  }
+  
+  .page-carousel {
+    border-radius: 12px !important;
+    border: none !important;
+  }
+  
+  .carousel-inner .carousel-item img {
+    border-radius: 12px;
+    box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
+    height: 400px;
+    width: 100%;
+  }
+  
+  .carousel-indicators {
+    bottom: 0px;
+  }
+  
+  .carousel-indicators li {
+    background-color: #FFFFFF;
+    border: 0 none;
+  }
+  
+  .carousel-indicators .active {
+    background-color: #3f3c3b;
+  }
+  
+  .page-carousel:hover .carousel-control.right,
+  .page-carousel:hover .carousel-control.left {
+    opacity: 1;
+  }
+  .d-block {
+    display: block!important
+}
+  .modal-header {
+    border-bottom: 1px solid #DDDDDD;
+    padding: 20px;
+    text-align: center;
+    display: block !important;
+  }
+  .modal-header.no-border-header {
+    border-bottom: 0 none !important;
+  }
+  .modal-header.no-border-header .modal-title {
+    margin-top: 20px;
+  }
+  .modal-header .modal-title {
+    color: #333333;
+  }
+  .modal-header button.close {
+    margin-top: -25px;
+  }
+  
+  .modal-content {
+    border: 0 none;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15), 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  }
+  .modal-content .modal-header h6 {
+    margin-top: 10px;
+  }
+  
+  .modal-dialog {
+    padding-top: 60px;
+  }
+  
+  .modal-body {
+    padding: 20px 50px;
+    color: #000;
+  }
+  
+  .modal-footer {
+    border-top: 1px solid #DDDDDD;
+    padding: 0px;
+  }
+  .modal-footer.no-border-footer {
+    border-top: 0 none;
+  }
+  
+  .modal-footer .left-side, .modal-footer .right-side {
+    display: inline-block;
+    text-align: center;
+    width: 49%;
+  }
+  
+  .modal-footer .btn-link {
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .modal-footer .divider {
+    background-color: #DDDDDD;
+    display: inline-block;
+    float: inherit;
+    height: 63px;
+    margin: 0px -3px;
+    width: 1px;
+  }
+  
+  .modal.fade .modal-dialog {
+    transform: none;
+    -webkit-transform: none;
+    -moz-transform: none;
+  }
+  
+  .modal.in .modal-dialog {
+    transform: none;
+    -webkit-transform: none;
+    -moz-transform: none;
+  }
+  
+  .modal-backdrop.in {
+    opacity: 0.25;
+  }
+  
+  .modal-register .modal-footer {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 20px 0 15px;
+  }
+  .modal-register .modal-footer span {
+    width: 100%;
+  }
+  
+  .modal-header:after {
+    display: table;
+    content: " ";
+  }
+  
+  .modal-header:before {
+    display: table;
+    content: " ";
+  }
+
+  .radio input[type="radio"]:checked + span{
+    color:rgb(20, 136, 151);  
+    font-weight: bold;
+  }
+  .radio input[type="radio"]:checked + span:before{
+      content:'';
+    width:6px;
+    height:6px;
+    position:absolute;
+    background:rgb(20, 136, 151);
+    left:5px;
+    top:6px;
+    border-radius:100%;
+  
+  }
 .navbar-brand {
     text-align: left;
     margin-left:-8%;
