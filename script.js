@@ -1,4 +1,5 @@
-(function() {
+
+(function () {
   const tough = [
     {
       question: "Who coined the word 'New England'?",
@@ -319,105 +320,105 @@
     }
   ];
 
+
+
   function buildQuiz() {
-    // to store the HTML output
-    const output = [];
-
+    // store the HTML output
+    let htmlOutput = [];
+    
     // for each question...
-    easy.forEach((currentQuestion, questionNumber) => {
+    easy.forEach((val, i) => {
       // to store the list of answer choices
-      const answers = [];
+      let answers = [];
 
-      // and for each available answer...
-      for (letter in currentQuestion.answers) {
-        // ...add an HTML radio button
+      // and for each available answer
+      for (letter in val.answers) {
+        // ...add a div and radio buttons
+        // <div class="btn-group d-block btn-group-toggle" data-toggle="buttons"></div>
         answers.push(
-          `<div class="btn-group d-block" data-toggle="buttons-radio">
-          <label for="radio1" label class="d-block">
-              <button type="button" id="radio1" class="btn btn-outline-info btn-sm"><span> ${currentQuestion.answers[letter]} </span>
-               </label></div>`
+          `
+            <label for="radio${i}" class="btn-group d-block"> ${val.answers[letter]}               
+              <input type="radio" id="radio${i}" name="question" value="${letter}">
+            </label>
+          `
         );
+        i++;
       }
 
-      // add this question and its answers to the output
-      output.push(
+      // add this question and its answers to the htmlOutput
+      htmlOutput.push(
         `<div class="slide">
-               <div class="question"> ${currentQuestion.question} </div>
+               <div class="question"> ${val.question} </div>
                <div class="answers"> ${answers.join("")} </div>
              </div>`
       );
     });
 
-    // finally combine our output list into one string of HTML and put it on the page
-    quizContainer.innerHTML = output.join("");
+    // combine htmlOutput list into one string of HTML and put it on the in the quiz container div
+    quizContainer.innerHTML = htmlOutput.join("");
   }
 
   function showResults() {
-    $("#exampleModal").modal("hide");
-      $("#myExampleModal").modal("show");
-  
-    //   var score = document.getElementById("results");
-    //   score.innerHTML = "test";
-    // gather answer containers from our quiz
+    console.log(showResults);
+    // get answer containers from trivia
     const answerContainers = quizContainer.querySelectorAll(".answers");
-    // keep track of user's answers
+
+    // keep track of answers
     let numCorrect = 0;
+    let userAnswer = ' ';
 
     // for each question...
-    easy.forEach((currentQuestion, questionNumber) => {
-      // find selected answer
-      const answerContainer = answerContainers[questionNumber];
-      const selector = "input[name=question" + questionNumber + "]:checked";
-      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+    for (var i=0; i < easy.length; i++) {
+      // find selected answer via index
+      // const answerContainer = answerContainers[i];
+      // find the radio button that was selected
+      // const selector = `input[name=question]:checked`;
+     // store users answer based on value of selector
+      userAnswer = (answerContainers[i].querySelector(`input[  name=question]:checked`)||{}).value; 
 
       // if answer is correct
-    //   if (userAnswer === currentQuestion.correctAnswer) {
+      
+      if (userAnswer === easy[i].correctAnswer) {
         // add to the number of correct answers
-        // numCorrect++;
-
-        // color the answers green
-    //     answerContainers[questionNumber].style.color = "#1D8EB0";
-    //   } else {
-        // if answer is wrong or blank
-        // color the answers red
-    //     answerContainers[questionNumber].style.color = "#B03F1D";
-    //   }
-    });
+        numCorrect++; 
+        console.log(numCorrect);
+      } else{
+        console.log("no answers were correct");
+      }
 
     // show number of correct answers out of total
-      resultsContainer.innerHTML = `${numCorrect} out of ${easy.length}`;
-      $("#myExampleModal").onclick.modal("hide");
+    resultsContainer.innerHTML = `${numCorrect} out of ${easy.length}`;
+      }
+ 
+  //hide quiz modal and show results modal
+      $("#quizModal").modal("hide");
+      $("#resultsModal").modal("show");
   }
+  //reload page if playagain button is clicked
+    playAgain.addEventListener("click", () => {
+        location.reload();
+    });
 
-  function showSlide(n) {
+  function showQuestions(n) {
+    //sort through slides to see each question 
     slides[currentSlide].classList.remove("active-slide");
     slides[n].classList.add("active-slide");
     currentSlide = n;
-
-    if (currentSlide === 0) {
-      previousButton.style.display = "none";
-    } else {
-      previousButton.style.display = "inline-block";
-    }
-
+//adjust display of buttons depending on slide number
+    if (currentSlide > 0) {
+      previousButton.style.display = "inline-block"; }
+   
     if (currentSlide === slides.length - 1) {
       nextButton.style.display = "none";
-      submitButton.style.display = "inline-block";
-    } else {
-      nextButton.style.display = "inline-block";
-      submitButton.style.display = "none";
-    }
+      submitButton.style.display = "inline-block"; }
   }
-
-  function showNextSlide() {
-    showSlide(currentSlide + 1);
-    
-    $('#radio1').click(function () {
-        showNextSlide();
-    });  }
-
-  function showPreviousSlide() {
-    showSlide(currentSlide - 1);
+//show the next question
+  function showNextQuestion() {
+    showQuestions(currentSlide + 1);
+ }
+//show the previous question
+  function showPreviousQuestion() {
+    showQuestions(currentSlide - 1);
     }
     
 
@@ -429,15 +430,15 @@
   buildQuiz();
 
   const previousButton = document.getElementById("previous");
-  const nextButton = document.getElementById("radio1");
+  const nextButton = document.getElementById("next");
   const slides = document.querySelectorAll(".slide");
   let currentSlide = 0;
 
-  showSlide(0);
+  showQuestions(0);
 
   // on submit, show results
   submitButton.addEventListener("click", showResults);
-  previousButton.addEventListener("click", showPreviousSlide);
-    // nextButton.addEventListener("click", showNextSlide);
+  previousButton.addEventListener("click", showPreviousQuestion);
+    nextButton.addEventListener("click", showNextQuestion);
  
 })();

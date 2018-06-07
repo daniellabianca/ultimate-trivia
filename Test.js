@@ -358,110 +358,110 @@
         },
         correctAnswer: "b"
     },
-    {
-        question: "Which atmospheric gas is the most common?",
-        answers: {
-            a: "Hydrogen",
-            b: "Oxygen",
-            c: "Argon",
-            d: "Nitrogen"
-        },
-        correctAnswer: "d"
-    },
-    {
-        question: "Excuse me while I ___:",
-        answers: {
-            a: "Eat this pie",
-            b: "Kiss this guy",
-            c: "Kiss the sky",
-            d: "Go mile high"
-        },
-        correctAnswer: "c"
-    },
+    // {
+    //     question: "Which atmospheric gas is the most common?",
+    //     answers: {
+    //         a: "Hydrogen",
+    //         b: "Oxygen",
+    //         c: "Argon",
+    //         d: "Nitrogen"
+    //     },
+    //     correctAnswer: "d"
+    // },
+    // {
+    //     question: "Excuse me while I ___:",
+    //     answers: {
+    //         a: "Eat this pie",
+    //         b: "Kiss this guy",
+    //         c: "Kiss the sky",
+    //         d: "Go mile high"
+    //     },
+    //     correctAnswer: "c"
+    // },
 
-    {
-        question:
-            'Which star of the film "Rebel Without a Cause" died at the age of 24?        ',
-        answers: {
-            a: "James Dean",
-            b: "Natalie Wood",
-            c: "Gregory Peck",
-            d: "Clark Gable"
-        },
-        correctAnswer: "a"
-    },
-    {
-        question:
-            "The Olympic flag's colors are always red, black, blue, green, and yellow rings on a field of white because __:",
-        answers: {
-            a:
-                "At least one of those colors appears on the flag of every nation on the planet.",
-            b: "They are primary colors.",
-            c: "They have important symbolism.",
-            d: "Each color is owned by the United States."
-        },
-        correctAnswer: "a"
-    },
-    {
-        question: "Wooly Mammoths were still alive when:",
-        answers: {
-            a: "The Mayan calendar began.",
-            b: "Barley and wheat were first cultivated.",
-            c: "The Great Pyramid of Giza was built.",
-            d: "The Bronze Age began."
-        },
-        correctAnswer: "c"
-    },
-    {
-        question: 'Who wrote "Where the Sidewalk Ends?"',
-        answers: {
-            a: "Allen Ginsberg",
-            b: "Charles Bukowski",
-            c: "Dr Seuss",
-            d: "Shel Silverstein"
-        },
-        correctAnswer: "d"
-    },
+    // {
+    //     question:
+    //         'Which star of the film "Rebel Without a Cause" died at the age of 24?        ',
+    //     answers: {
+    //         a: "James Dean",
+    //         b: "Natalie Wood",
+    //         c: "Gregory Peck",
+    //         d: "Clark Gable"
+    //     },
+    //     correctAnswer: "a"
+    // },
+    // {
+    //     question:
+    //         "The Olympic flag's colors are always red, black, blue, green, and yellow rings on a field of white because __:",
+    //     answers: {
+    //         a:
+    //             "At least one of those colors appears on the flag of every nation on the planet.",
+    //         b: "They are primary colors.",
+    //         c: "They have important symbolism.",
+    //         d: "Each color is owned by the United States."
+    //     },
+    //     correctAnswer: "a"
+    // },
+    // {
+    //     question: "Wooly Mammoths were still alive when:",
+    //     answers: {
+    //         a: "The Mayan calendar began.",
+    //         b: "Barley and wheat were first cultivated.",
+    //         c: "The Great Pyramid of Giza was built.",
+    //         d: "The Bronze Age began."
+    //     },
+    //     correctAnswer: "c"
+    // },
+    // {
+    //     question: 'Who wrote "Where the Sidewalk Ends?"',
+    //     answers: {
+    //         a: "Allen Ginsberg",
+    //         b: "Charles Bukowski",
+    //         c: "Dr Seuss",
+    //         d: "Shel Silverstein"
+    //     },
+    //     correctAnswer: "d"
+    // },
 
-    {
-        question: '"Psycho" was the first American film to show __',
-        answers: {
-            a: "Gory murder scenes",
-            b: "A couple in bed",
-            c: "A flushing toilet",
-            d: "Matricide"
-        },
-        correctAnswer: "c"
-    },
-    {
-        question: "What country owns every panda in the world?",
-        answers: {
-            a: "China",
-            b: "Japan",
-            c: "Korea",
-            d: "Australia"
-        },
-        correctAnswer: "a"
-    }
+    // {
+    //     question: '"Psycho" was the first American film to show __',
+    //     answers: {
+    //         a: "Gory murder scenes",
+    //         b: "A couple in bed",
+    //         c: "A flushing toilet",
+    //         d: "Matricide"
+    //     },
+    //     correctAnswer: "c"
+    // },
+    // {
+    //     question: "What country owns every panda in the world?",
+    //     answers: {
+    //         a: "China",
+    //         b: "Japan",
+    //         c: "Korea",
+    //         d: "Australia"
+    //     },
+    //     correctAnswer: "a"
+    // }
 ];
   
     function buildQuiz() {
       // we'll need a place to store the HTML output
-      const output = [];
+      let output = [];
   
       // for each question...
       easy.forEach((currentQuestion, questionNumber) => {
         // we'll want to store the list of answer choices
-        const answers = [];
+        let answers = [];
   
         // and for each available answer...
         for (letter in currentQuestion.answers) {
           // ...add an HTML radio button
           answers.push(
-            `<label for="radio1">
-            <input type="radio" id="radio1" class="radio1"><span>
-            ${currentQuestion.answers[letter]} </span>
-             </label>`
+            `<div class="btn-group d-block btn-group-toggle" data-toggle="buttons">
+            <label for="radio1" label class="btn d-block">
+                <input type="button" id="radio1" class="btn btn-outline-info btn-sm" autocomplete="off" name="question${questionNumber}"><span> ${currentQuestion.answers[letter]} </span>
+                 </label></div>`
           );
         }
   
@@ -478,24 +478,27 @@
       quizContainer.innerHTML = output.join("");
     }
   
-    function showResults() {
+  function showResults() {
+    $("#quizModal").modal("hide");
+    $("#resultsModal").modal("show");
+    
       // gather answer containers from our quiz
       const answerContainers = quizContainer.querySelectorAll(".answers");
   
       // keep track of user's answers
-      let numCorrect = 0;
+      let numCorrect = [];
   
       // for each question...
       easy.forEach((currentQuestion, questionNumber) => {
         // find selected answer
         const answerContainer = answerContainers[questionNumber];
-        const selector = `input[name=question${questionNumber}]:checked`;
+        const selector = `input[name="question${questionNumber}"]:checked`;
         const userAnswer = (answerContainer.querySelector(selector) || {}).value;
   
         // if answer is correct
         if (userAnswer === currentQuestion.correctAnswer) {
           // add to the number of correct answers
-          numCorrect++;
+          numCorrect += 1;
   
           // color the answers green
           answerContainers[questionNumber].style.color = "lightgreen";
@@ -508,6 +511,7 @@
   
       // show number of correct answers out of total
       resultsContainer.innerHTML = `${numCorrect} out of ${easy.length}`;
+    
     }
   
     function showSlide(n) {
