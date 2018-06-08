@@ -1,9 +1,120 @@
 
 
-// code assistance for radio buttons and functions via code pen (source to be added soon). MDN for help on some event handlers.
+// Code assistance for radio buttons from https://codepen.io/wilder_taype/pen/pNXwMW. 
+// Functions adapted from https://codepen.io/SitePoint/pen/GmPjjL.
+// Misc codes adapted from MDN.
 
 
 (function () {
+  const easy = [
+    {
+      question: "What country owns every panda in the world?",
+      answers: {
+        a: "China",
+        b: "Japan",
+        c: "Korea",
+        d: "Australia"
+      },
+      correctAnswer: "a"
+    },
+
+    {
+      question: "Lucy in the sky with __:",
+      answers: {
+        a: "Sunshine",
+        b: "Diamonds",
+        c: "Stars",
+        d: "Rockets"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question:
+        "What was tested at \"Bikini Atoll\" in the 1940's and the 1950\'s?",
+      answers: {
+        a: "Nuclear bomb",
+        b: "Atomic bomb ",
+        c: "Stealth aircraft",
+        d: "Mustard gas"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "Which atmospheric gas is the most common?",
+      answers: {
+        a: "Hydrogen",
+        b: "Oxygen",
+        c: "Argon",
+        d: "Nitrogen"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "Excuse me while I __:",
+      answers: {
+        a: "Eat this pie",
+        b: "Kiss this guy",
+        c: "Kiss the sky",
+        d: "Go mile high"
+      },
+      correctAnswer: "c"
+    },
+
+    {
+      question:
+        'Which star of the film \"Rebel Without a Cause\" died at the age of 24?',
+      answers: {
+        a: "James Dean",
+        b: "Natalie Wood",
+        c: "Gregory Peck",
+        d: "Clark Gable"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question:
+        "The Olympic flag's colors are always red, black, blue, green, and yellow rings on a field of white because __:",
+      answers: {
+        a:
+          "At least one of those colors appears on the flag of every nation on the planet.",
+        b: "They are primary colors.",
+        c: "They have important symbolism.",
+        d: "Each color is owned by the United States."
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "Wooly Mammoths were still alive when __:",
+      answers: {
+        a: "The Mayan calendar began.",
+        b: "Barley and wheat were first cultivated.",
+        c: "The Great Pyramid of Giza was built.",
+        d: "The Bronze Age began."
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: 'Who wrote "Where the Sidewalk Ends?"',
+      answers: {
+        a: "Allen Ginsberg",
+        b: "Charles Bukowski",
+        c: "Dr Seuss",
+        d: "Shel Silverstein"
+      },
+      correctAnswer: "d"
+    },
+
+    {
+      question: '"Psycho" was the first American film to show __:',
+      answers: {
+        a: "Gory murder scenes",
+        b: "A psychopath",
+        c: "A flushing toilet",
+        d: "Matricide"
+      },
+      correctAnswer: "c"
+    }
+  ];
   const tough = [
     {
       question: "Who coined the word 'New England'?",
@@ -68,7 +179,7 @@
     },
     {
       question:
-        "Sleeping through winter is hibernation, while sleeping through summer is ___:",
+        "Sleeping through winter is hibernation, while sleeping through summer is __:",
       answers: {
         a: "A good idea",
         b: "Defenestration",
@@ -122,7 +233,7 @@
     },
     {
       question:
-        'Shiro Cosmetics sells an eyeshadow called "____ Raking Leaves on a Brisk October Afternoon"',
+        'Shiro Cosmetics sells an eyeshadow called "__ Raking Leaves on a Brisk October Afternoon"',
       answers: {
         a: "Shrine Maiden",
         b: "Angry Mother",
@@ -132,7 +243,7 @@
       correctAnswer: "d"
     },
     {
-      question: '"Hatoful Boyfriend" is a visual novel where you can date ___:',
+      question: '"Hatoful Boyfriend" is a visual novel where you can date __:',
       answers: {
         a: "Demons",
         b: "Centaurs",
@@ -214,240 +325,104 @@
     }
   ];
 
-  const easy = [
-    {
-      question: "What country owns every panda in the world?",
-      answers: {
-        a: "China",
-        b: "Japan",
-        c: "Korea",
-        d: "Australia"
-      },
-      correctAnswer: "a"
-    },
-
-    {
-      question: "Lucy in the sky with ___:",
-      answers: {
-        a: "Sunshine",
-        b: "Diamonds",
-        c: "Stars",
-        d: "Rockets"
-      },
-      correctAnswer: "b"
-    },
-    {
-      question:
-        "What was tested at \"Bikini Atoll\" in the 1940's and the 1950\'s?",
-      answers: {
-        a: "Nuclear bomb",
-        b: "Atomic bomb ",
-        c: "Stealth aircraft",
-        d: "Mustard gas"
-      },
-      correctAnswer: "b"
-    },
-    {
-      question: "Which atmospheric gas is the most common?",
-      answers: {
-        a: "Hydrogen",
-        b: "Oxygen",
-        c: "Argon",
-        d: "Nitrogen"
-      },
-      correctAnswer: "d"
-    },
-    {
-      question: "Excuse me while I ___:",
-      answers: {
-        a: "Eat this pie",
-        b: "Kiss this guy",
-        c: "Kiss the sky",
-        d: "Go mile high"
-      },
-      correctAnswer: "c"
-    },
-
-    {
-      question:
-        'Which star of the film \"Rebel Without a Cause\" died at the age of 24?        ',
-      answers: {
-        a: "James Dean",
-        b: "Natalie Wood",
-        c: "Gregory Peck",
-        d: "Clark Gable"
-      },
-      correctAnswer: "a"
-    },
-    {
-      question:
-        "The Olympic flag's colors are always red, black, blue, green, and yellow rings on a field of white because __:",
-      answers: {
-        a:
-          "At least one of those colors appears on the flag of every nation on the planet.",
-        b: "They are primary colors.",
-        c: "They have important symbolism.",
-        d: "Each color is owned by the United States."
-      },
-      correctAnswer: "a"
-    },
-    {
-      question: "Wooly Mammoths were still alive when __:",
-      answers: {
-        a: "The Mayan calendar began.",
-        b: "Barley and wheat were first cultivated.",
-        c: "The Great Pyramid of Giza was built.",
-        d: "The Bronze Age began."
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: 'Who wrote "Where the Sidewalk Ends?"',
-      answers: {
-        a: "Allen Ginsberg",
-        b: "Charles Bukowski",
-        c: "Dr Seuss",
-        d: "Shel Silverstein"
-      },
-      correctAnswer: "d"
-    },
-
-    {
-      question: '"Psycho" was the first American film to show __:',
-      answers: {
-        a: "Gory murder scenes",
-        b: "A psychopath",
-        c: "A flushing toilet",
-        d: "Matricide"
-      },
-      correctAnswer: "c"
-    }
-  ];
-
-  function buildQuiz() {
-   
-    // store the HTML output
+  function startTrivia() {
     let htmlOutput = [];
-
-    // for each question...
     impossible.forEach((val, i) => {
-      // to store the list of answer choices
       let answers = [];
-
-      // and for each available answer
       for (letter in val.answers) {
-        // ...add a div and radio buttons
-       
         answers.push(
-         
-  
           `<label for="radio${i}" class=" d-block">
-          <input type="radio" class="option-input radio" id="radio${i}" name="question" value="${val.answers[letter]}">
-          ${val.answers[letter]}       
+       <input type="radio" class="option-input radio" id="radio${i}" name="question" value="${val.answers[letter]}">
+       ${val.answers[letter]}       
         </label>`
         );
         i++;
       }
-      // }
-
-      // add this question and its answers to the htmlOutput
       htmlOutput.push(
         `<div class="slide ">
                <div class="question align-middle d-block"> ${val.question} </div>
                <form class="answers align-middle d-block form-${i}"> ${answers.join("")} </form>
              </div>`
       );
-       // combine htmlOutput list into one string of HTML and put it on the in the quiz container div
-      quizContainer.innerHTML = htmlOutput.join("");
-
-    
+      triviaContainer.innerHTML = htmlOutput.join("");
     });
-    
-    var form = document.querySelectorAll(`form`)
-    for (i=0; i < form.length; i++) {
-      let currentForm = form[i]
-      currentForm.addEventListener("change", function(e) {
-        let data = new FormData(currentForm)
-        Array.from(data.values()).forEach(value => currentAnswer=value)
+
+
+    var form = document.querySelectorAll(`form`);
+    for (i = 0; i < form.length; i++) {
+      let currentForm = form[i];
+      currentForm.addEventListener("change", function (e) {
+        let data = new FormData(currentForm);
+        Array.from(data.values()).forEach(value => currentAnswer = value)
       })
-  
     }
-    
   }
-  
+
   let currentAnswer = '';
-  let numCorrect = 0;
+  let rightAnswers = 0;
 
-   function showResults() {
-    
-        // gather answer containers from our quiz
-        const answerContainers = quizContainer.querySelectorAll(".answers");
-
-
-        // show number of correct answers out of total
-        if (numCorrect > 7) {
-        resultsContainer.innerHTML = `You have ${numCorrect} correct answers out of ${impossible.length}. \n \n Outstanding!`; }
-        if (numCorrect < 7) {
-          resultsContainer.innerHTML = `You have ${numCorrect} correct answers out of ${impossible.length}. \n \n Keep trying!`; }
-        
-
-console.log(numCorrect);
-        $("#quizModal").modal("hide");
-        $("#resultsModal").modal("show");
+  function showScore() {
+    const triviaResults = triviaContainer.querySelectorAll(".answers");
+    if (rightAnswers > 7) {
+      resultsContainer.innerHTML = `You have ${rightAnswers} correct answers out of ${impossible.length}. \n \n Outstanding!`;
+    } if (rightAnswers < 7) {
+      resultsContainer.innerHTML = `You have ${rightAnswers} correct answers out of ${impossible.length}. \n \n Keep trying!`;
     }
+    $("#triviaModal").modal("hide");
+    $("#resultsModal").modal("show");
 
     playAgain.addEventListener("click", () => {
-        location.reload();
+      location.reload();
     });
+  }
 
   function showQuestions(n) {
-    let currentQuestion = impossible[currentSlide];
+    let currentQuestion = impossible[activeSlide];
     let answer = currentQuestion.answers[currentQuestion.correctAnswer];
     if (currentAnswer === answer) {
-      numCorrect ++; }
-    console.log(currentAnswer);
-    console.log(answer);
-    //sort through slides to see each question 
-    slides[currentSlide].classList.remove("active-slide");
-    slides[n].classList.add("active-slide");
-    currentSlide = n;
-//adjust display of buttons depending on slide number
-    if (currentSlide > 0) {
-      previousButton.style.display = "inline-block"; }
-   
-    if (currentSlide === slides.length - 1) {
-      nextButton.style.display = "none";
-      submitButton.style.display = "inline-block"; }
-  }
-//show the next question
-  function showNextQuestion() {
-    showQuestions(currentSlide + 1);
- }
-//show the previous question
-  function showPreviousQuestion() {
-    showQuestions(currentSlide - 1);
+      rightAnswers++;
     }
-    
 
-  const quizContainer = document.getElementById("quiz");
+    slides[activeSlide].classList.remove("active-slide");
+    slides[n].classList.add("active-slide");
+    activeSlide = n;
+    if (activeSlide > 0) {
+      previousButton.style.display = "inline-block";
+    }
+
+    if (activeSlide === slides.length - 1) {
+      nextButton.style.display = "none";
+      submitButton.style.display = "inline-block";
+    }
+  }
+
+  function showNextQuestion() {
+    showQuestions(activeSlide + 1);
+  }
+
+  function showPreviousQuestion() {
+    showQuestions(activeSlide - 1);
+  }
+
+
+  const triviaContainer = document.getElementById("trivia");
   const resultsContainer = document.getElementById("results");
-      const submitButton = document.getElementById("submit");
+  const submitButton = document.getElementById("submit");
 
-  // display quiz right away
-  buildQuiz();
+  startTrivia();
 
   const previousButton = document.getElementById("previous");
   const nextButton = document.getElementById("next");
   const slides = document.querySelectorAll(".slide");
-  let currentSlide = 0;
+  let activeSlide = 0;
 
   showQuestions(0);
 
-  // on submit, show results
-  submitButton.addEventListener("click", showResults);
+
+  submitButton.addEventListener("click", showScore);
   previousButton.addEventListener("click", showPreviousQuestion);
-    nextButton.addEventListener("click", showNextQuestion);
- 
+  nextButton.addEventListener("click", showNextQuestion);
+
 })();
 
 
