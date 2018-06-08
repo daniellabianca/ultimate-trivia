@@ -330,7 +330,7 @@
     let htmlOutput = [];
 
     // for each question...
-    easy.forEach((val, i) => {
+    impossible.forEach((val, i) => {
       // to store the list of answer choices
       let answers = [];
 
@@ -386,9 +386,9 @@
 
         // show number of correct answers out of total
         if (numCorrect > 7) {
-        resultsContainer.innerHTML = `You have ${numCorrect} correct answers out of ${easy.length}. \n \n Outstanding!`; }
+        resultsContainer.innerHTML = `You have ${numCorrect} correct answers out of ${impossible.length}. \n \n Outstanding!`; }
         if (numCorrect < 7) {
-          resultsContainer.innerHTML = `You have ${numCorrect} correct answers out of ${easy.length}. \n \n Keep trying!`; }
+          resultsContainer.innerHTML = `You have ${numCorrect} correct answers out of ${impossible.length}. \n \n Keep trying!`; }
         
 
 console.log(numCorrect);
@@ -401,7 +401,7 @@ console.log(numCorrect);
     });
 
   function showQuestions(n) {
-    let currentQuestion = easy[currentSlide];
+    let currentQuestion = impossible[currentSlide];
     let answer = currentQuestion.answers[currentQuestion.correctAnswer];
     if (currentAnswer === answer) {
       numCorrect ++; }
