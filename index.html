@@ -11,18 +11,18 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Average+Sans|Days+One|Hammersmith+One|Special+Elite" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Average+Sans|Days+One|Hammersmith+One|Special+Elite" rel="stylesheet">
 
 
 
     <link rel="stylesheet" href="style.css">
-    <title>Ultimate Trivia</title>
+    <title>Random Trivia</title>
 </head>
 
 <body>
-    <!-- Navigation -->
+
     <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
+        <div class="nav-container">
             <a class="navbar-brand text-left" href="#">
                 <i class="fas fa-play"></i>&ensp; Challenge Yourself - Random Trivia</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
@@ -57,7 +57,6 @@
     </nav>
 
 
-    <!-- <section> -->
 
     <div class="section" id="carousel">
         <div class="container-fluid">
@@ -92,11 +91,11 @@
                             </div>
 
                             <a class="left carousel-control carousel-control-prev" href="#carouselArrows" role="button" data-slide="prev">
-                                    <i class="fas fa-angle-double-left fa-2x"></i>
+                                <i class="fas fa-angle-double-left fa-2x"></i>
                                 <span class="sr-only">Previous</span>
                             </a>
                             <a class="right carousel-control carousel-control-next" href="#carouselArrows" role="button" data-slide="next">
-                                    <i class="fas fa-angle-double-right fa-2x"></i>
+                                <i class="fas fa-angle-double-right fa-2x"></i>
                                 <span class="sr-only">Next</span>
                             </a>
                         </div>
@@ -114,9 +113,9 @@
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-center" id="quizModal">Progress</h5>
+                    <h5 class="modal-title text-center" id="quizModal">Challenge Yourself</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">X</span>
+                        <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="quiz-container">
@@ -137,14 +136,14 @@
 
 
                     <button type="button" class="btn-submit btn-lg btn-fill" data-dismiss="exampleModel" data-toggle="resultsModal" id="submit">Submit Answer</button>
-                    
-                    
+
+
                 </div>
             </div>
         </div>
     </div>
     </div>
-   
+
 
     <div class="modal fade bg-secondary" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="resultsModal" aria-hidden="true">
         <div class="modal-overlay" id="modal-overlay">
@@ -163,8 +162,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    
-                                           
+
+
 
                     <button type="button" class="btn btn-play btg-lg btn-fill" id="playAgain">Play a New Game </button>
                 </div>
@@ -176,66 +175,59 @@
 
 
 
-<!-- Footer -->
-<footer class="page-footer mt-4">
 
-        <!-- Footer Links -->
-        <div class="container">
-      
-          <!-- Grid row-->
-          <div class="row">
-      
-            <!-- Grid column -->
-            <div class="col-md-12 pt-5">
-              <div class="mb-5 d-flex justify-content-center">
-      
-                <!-- Facebook -->
-                
+    <footer class="page-footer mt-4">
+
+        <div class="container-fluid-footer">
+
+            <div class="row">
+
+                <div class="col-md-12 pt-5">
+                    <div class="mb-5 d-flex justify-content-center">
+
+
+
                         <a href="#" class="fb-ic">
-                  <i class="fab fa-facebook white fa-fw fa-3x"> </i>
-                </a>
-                <!-- Twitter -->
-                
+                            <i class="fab fa-facebook white fa-fw fa-3x"> </i>
+                        </a>
+
                         <a href="#" class="tw-ic">
-                  <i class="fab fa-twitter white fa-fw fa-3x"> </i>
-                </a>
-                <!-- Google +-->
-                
+                            <i class="fab fa-twitter white fa-fw fa-3x"> </i>
+                        </a>
+
+
                         <a href="#" class="gplus-ic">
-                  <i class="fab fa-google-plus white fa-fw fa-3x"> </i>
-                </a>
-                <!--Linkedin -->
-                
-                        <a href="#"  class="li-ic">
-                  <i class="fab fa-linkedin  white fa-fw fa-3x"> </i>
-                </a>
-                <!--Instagram-->
-                
+                            <i class="fab fa-google-plus white fa-fw fa-3x"> </i>
+                        </a>
+
+
+                        <a href="#" class="li-ic">
+                            <i class="fab fa-linkedin  white fa-fw fa-3x"> </i>
+                        </a>
+
+
                         <a href="#" class="ins-ic">
-                  <i class="fab fa-instagram  white fa-fw fa-3x"> </i>
-                </a>
-                <!--Pinterest-->
-                <a href="#"class="pin-ic">
-                  <i class="fab fa-pinterest  white fa-fw fa-3x"> </i>
-                </a>
-              </div>
+                            <i class="fab fa-instagram  white fa-fw fa-3x"> </i>
+                        </a>
+
+                        <a href="#" class="pin-ic">
+                            <i class="fab fa-pinterest  white fa-fw fa-3x"> </i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col"> </div>
+
+                <div class="footer-copyright d-flex justify-content-center">
+                    <p class="cRight">© 2018 Copyright: Dani Colangelo
+                        <a href="#">Here I Am</a>
+                    </p>
+                </div>
+
             </div>
-            <!-- Grid column -->
-      
-          </div>
-          <!-- Grid row-->
-      
+
         </div>
-        <!-- Footer Links -->
-      
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2018 Copyright: Dani Colangelo
-          <a href="#">Here I Am</a>
-        </div>
-        <!-- Copyright -->
-      
-      </footer>
-      <!-- Footer -->
+    </footer>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

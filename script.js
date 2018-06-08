@@ -321,6 +321,7 @@
   ];
 
   function buildQuiz() {
+    console.log("hi");
     // store the HTML output
     let htmlOutput = [];
 
@@ -335,57 +336,85 @@
        
         answers.push(
          
-          `<label for="radio${i}" class=" d-block active">
-          <input type="radio" class="option-input radio" id="radio${i}" name="question">
+  
+          `<label for="radio${i}" class=" d-block">
+          <input type="radio" class="option-input radio" id="radio${i}" name="question" value="${val.answers[letter]}">
           ${val.answers[letter]}       
         </label>`
         );
         i++;
       }
+      // }
 
       // add this question and its answers to the htmlOutput
       htmlOutput.push(
-        `<div class="slide">
-               <div class="question"> ${val.question} </div>
-               <div class="answers"> ${answers.join("")} </div>
+        `<div class="slide ">
+               <div class="question align-middle d-block"> ${val.question} </div>
+               <form class="answers align-middle d-block form-${i}"> ${answers.join("")} </form>
              </div>`
       );
+      quizContainer.innerHTML = htmlOutput.join("");
+
+    
     });
+    
+    var form = document.querySelectorAll(`form`)
+    for (i=0; i < form.length; i++) {
+      let currentForm = form[i]
+      currentForm.addEventListener("change", function(e) {
+        let data = new FormData(currentForm)
+        Array.from(data.values()).forEach(value => currentAnswer=value)
+      })
+  
+    }
+    console.log(form)
 
     // combine htmlOutput list into one string of HTML and put it on the in the quiz container div
-    quizContainer.innerHTML = htmlOutput.join("");
+    
   }
+  
+  let currentAnswer = '';
+  let numCorrect = 0;
 
    function showResults() {
+     console.log(showResults);
         // gather answer containers from our quiz
         const answerContainers = quizContainer.querySelectorAll(".answers");
 
         // keep track of user's answers
-        let numCorrect = 0;
+        
 
-        // for each question...
-        easy.forEach((currentQuestion, questionNumber) => {
-            // find selected answer
-            const answerContainer = answerContainers[questionNumber];
-            const selector = `input[name=question${questionNumber}]:checked`;
-            const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+        // // for each question...
+        // easy.forEach((val, i) => {
+        //     // find selected answer
+        //     const answerContainer = answerContainers[i];
+        //     const selector = `input[name=question]:checked`;
+        //     const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
-            // if answer is correct
-            if (userAnswer === currentQuestion.correctAnswer) {
-                // add to the number of correct answers
-                numCorrect++;
+        //     // if answer is correct
+        //     if (userAnswer === val.correctAnswer) {
+        //         // add to the number of correct answers
+        //         numCorrect++;
 
-                // color the answers green
-                answerContainers[questionNumber].style.color = "lightgreen";
-            } else {
-                // if answer is wrong or blank
-                // color the answers red
-                answerContainers[questionNumber].style.color = "red";
-            }
-        });
+        //         // color the answers green
+        //         answerContainers[i].style.color = "lightgreen";
+        //     } else {
+        //         // if answer is wrong or blank
+        //         // color the answers red
+        //         answerContainers[i].style.color = "red";
+        //     }
+        // });
 
         // show number of correct answers out of total
-        resultsContainer.innerHTML = "What's that old saying? Form follows function? No....was it beauty over brains? Either way, we don't count scores around here. Great job completing the trivia questions!";
+        if (numCorrect > 7) {
+        resultsContainer.innerHTML = `You have ${numCorrect} correct answers out of ${easy.length}. \n \n Outstanding!`; }
+        if (numCorrect < 7) {
+          resultsContainer.innerHTML = `You have ${numCorrect} correct answers out of ${easy.length}. \n \n Keep trying!`; }
+        
+
+
+
+console.log(numCorrect);
         $("#quizModal").modal("hide");
         $("#resultsModal").modal("show");
     }
@@ -395,6 +424,12 @@
     });
 
   function showQuestions(n) {
+    let currentQuestion = easy[currentSlide];
+    let answer = currentQuestion.answers[currentQuestion.correctAnswer];
+    if (currentAnswer === answer) {
+      numCorrect ++; }
+    console.log(currentAnswer);
+    console.log(answer);
     //sort through slides to see each question 
     slides[currentSlide].classList.remove("active-slide");
     slides[n].classList.add("active-slide");
