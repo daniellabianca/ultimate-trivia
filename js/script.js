@@ -84,7 +84,7 @@
       correctAnswer: "d"
     },
     {
-      question: "All swans in England:",
+      question: "All swans in England __:",
       answers: {
         a: "Are endangered",
         b: "Are white",
@@ -94,7 +94,7 @@
       correctAnswer: "c"
     },
     {
-      question: "Male students enrolled at Brigham Young University:",
+      question: "Male students enrolled at Brigham Young University __:",
       answers: {
         a: "Need a doctor's note to grow a beard.",
         b: "Are required to keep their nails short.",
@@ -212,7 +212,7 @@
 
   const easy = [
     {
-      question: "<p>What country owns every panda in the world? <p/>",
+      question: "What country owns every panda in the world?",
       answers: {
         a: "China",
         b: "Japan",
@@ -234,7 +234,7 @@
     },
     {
       question:
-        "What was tested at \"Bikini Atoll\" in the 1940's and the 1950's?",
+        "What was tested at \"Bikini Atoll\" in the 1940's and the 1950\'s?",
       answers: {
         a: "Nuclear bomb",
         b: "Atomic bomb ",
@@ -266,7 +266,7 @@
 
     {
       question:
-        'Which star of the film "Rebel Without a Cause" died at the age of 24?        ',
+        'Which star of the film \"Rebel Without a Cause\" died at the age of 24?        ',
       answers: {
         a: "James Dean",
         b: "Natalie Wood",
@@ -288,7 +288,7 @@
       correctAnswer: "a"
     },
     {
-      question: "Wooly Mammoths were still alive when:",
+      question: "Wooly Mammoths were still alive when __:",
       answers: {
         a: "The Mayan calendar began.",
         b: "Barley and wheat were first cultivated.",
@@ -309,10 +309,10 @@
     },
 
     {
-      question: '"Psycho" was the first American film to show __',
+      question: '"Psycho" was the first American film to show __:',
       answers: {
         a: "Gory murder scenes",
-        b: "A couple in bed",
+        b: "A psychopath",
         c: "A flushing toilet",
         d: "Matricide"
       },
@@ -321,7 +321,7 @@
   ];
 
   function buildQuiz() {
-    console.log("hi");
+   
     // store the HTML output
     let htmlOutput = [];
 
@@ -353,6 +353,7 @@
                <form class="answers align-middle d-block form-${i}"> ${answers.join("")} </form>
              </div>`
       );
+       // combine htmlOutput list into one string of HTML and put it on the in the quiz container div
       quizContainer.innerHTML = htmlOutput.join("");
 
     
@@ -367,9 +368,6 @@
       })
   
     }
-    console.log(form)
-
-    // combine htmlOutput list into one string of HTML and put it on the in the quiz container div
     
   }
   
@@ -377,33 +375,10 @@
   let numCorrect = 0;
 
    function showResults() {
-     console.log(showResults);
+    
         // gather answer containers from our quiz
         const answerContainers = quizContainer.querySelectorAll(".answers");
 
-        // keep track of user's answers
-        
-
-        // // for each question...
-        // easy.forEach((val, i) => {
-        //     // find selected answer
-        //     const answerContainer = answerContainers[i];
-        //     const selector = `input[name=question]:checked`;
-        //     const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-
-        //     // if answer is correct
-        //     if (userAnswer === val.correctAnswer) {
-        //         // add to the number of correct answers
-        //         numCorrect++;
-
-        //         // color the answers green
-        //         answerContainers[i].style.color = "lightgreen";
-        //     } else {
-        //         // if answer is wrong or blank
-        //         // color the answers red
-        //         answerContainers[i].style.color = "red";
-        //     }
-        // });
 
         // show number of correct answers out of total
         if (numCorrect > 7) {
@@ -411,8 +386,6 @@
         if (numCorrect < 7) {
           resultsContainer.innerHTML = `You have ${numCorrect} correct answers out of ${easy.length}. \n \n Keep trying!`; }
         
-
-
 
 console.log(numCorrect);
         $("#quizModal").modal("hide");
@@ -472,3 +445,5 @@ console.log(numCorrect);
     nextButton.addEventListener("click", showNextQuestion);
  
 })();
+
+

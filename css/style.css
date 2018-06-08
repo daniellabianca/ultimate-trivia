@@ -11,7 +11,8 @@
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 4%;
+    margin-top: -1%;
+   
 }
 
 body {
@@ -506,9 +507,10 @@ button, input {
 .navbar-nav {
     display: flex;
     flex-direction: row;
-    padding-left: 0;
+       padding-left: 0;
     margin-bottom: auto;
     list-style: none;
+   
 }
 
 .navbar-nav>li>a:hover, a:hover, a:active, a:visited {
@@ -554,6 +556,7 @@ button, input {
     opacity: 1.0;
 }
 
+
 .page-footer {
     font-family: 'Average Sans', sans-serif;
     color: #66615b;
@@ -562,10 +565,10 @@ button, input {
     display: flex;
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
-    margin-bottom: 0;
     align-content: space-between;
     flex-direction: column;
     flex-wrap: wrap;
+    height: auto;
 }
 
 .footer-copyright {
