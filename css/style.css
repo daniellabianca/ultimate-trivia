@@ -131,21 +131,21 @@ h5 {
 
 .btn-previous {
     background-color: #7A9E9F;
-    border-color: #7A9E9F;
+    
 }
 
 .btn-play {
     background-color: #dc3545;
-    border-color: #dc3545;
+
 }
 
 .btn-next {
     background-color: #7AC29A;
-    border-color: #7AC29A;
+  
 }
 
 .btn-submit {
-    border-color: #F3BB45;
+  
     background-color: #F3BB45;
 }
 
@@ -171,30 +171,30 @@ h5 {
 
 .btn-carousel:hover {
     background-color: #66615B;
-    border-color: #66615B;
+  
     opacity: .9;
     color: #ffffff;
 }
 
 .btn-next:hover {
     background-color: #68B3C8;
-    border-color: #68B3C8;
+   
     ;
 }
 
 .btn-previous:hover {
     background-color: #7A9E9F;
-    border-color: #7A9E9F;
+    
 }
 
 .btn-submit:hover {
     background-color: #F3BB45;
-    border-color: #F3BB45;
+   
 }
 
 .btn-play:hover {
     background-color: #7AC29A;
-    border-color: #7AC29A;
+
 }
 
 label {
@@ -455,7 +455,7 @@ label {
 }
 
 .bg-gray9 {
-    background-color: 69, 76, 86;
+    background-color: rgb (69, 76, 86);
 }
 
 .white {
