@@ -385,7 +385,7 @@
         });
 
         // show number of correct answers out of total
-        resultsContainer.innerHTML = `${numCorrect} out of ${easy.length}`;
+        resultsContainer.innerHTML = "What's that old saying? Form follows function? No....was it beauty over brains? Either way, we don't count scores around here. Great job completing the trivia questions!";
         $("#quizModal").modal("hide");
         $("#resultsModal").modal("show");
     }

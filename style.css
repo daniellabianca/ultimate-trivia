@@ -120,12 +120,12 @@ h5 {
     border-color: #7A9E9F;
 }
 
-.btn-next {
-    background-color: #68B3C8;
-    border-color: #68B3C8;
+.btn-play {
+    background-color: #dc3545;
+    border-color: #dc3545;
 }
 
-.btn-play {
+.btn-next {
     background-color: #7AC29A;
     border-color: #7AC29A;
 }
