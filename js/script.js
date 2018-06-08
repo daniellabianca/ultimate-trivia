@@ -1,4 +1,8 @@
 
+
+// code assistance for radio buttons and functions via code pen (source to be added soon). MDN for help on some event handlers.
+
+
 (function () {
   const tough = [
     {
