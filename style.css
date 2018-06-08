@@ -8,10 +8,57 @@
 }
 
 body {
-    font-family: 'Average Sans', sans-serif;
-    color: #66615b;
-    background-color: rgba(69, 76, 86, .2);
+    
+        background-color: rgba(69, 76, 86, .2);
 }
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    top: 14px;
+    right: 20px;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    transition: all 0.15s ease-out 0s;
+    background: #cbd1d8;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+
+    
+  }
+  .option-input:hover {
+    background: #9faab7;
+  }
+  .option-input:checked, .option-input:checked::after {
+    background: #40e0d0;
+    position: relative;
+    z-index: 100;
+  }
+  .option-input:checked::before {
+    height: 40px;
+    width: 40px;
+    position: relative;
+    content: '✔';
+    display: inline-block;
+    font-size: 28px;
+    text-align: center;
+    line-height: 40px;
+  }
+ 
+  .option-input.radio, .option-input.radio::after  {
+    border-radius: 50%;
+  }
+
 
 h5 {
     font-size: 30px;
@@ -27,7 +74,7 @@ h5 {
     top: 0px;
     width: 100%;
     z-index: 1;
-    opacity: 0;
+   opacity: 0;
     transition: opacity 0.5s;
     text-align: center;
 }
@@ -36,6 +83,8 @@ h5 {
     font-size: 18px;
     font-family: 'Average Sans', sans-serif;
     color: #66615b;
+    padding-left: 15px;
+ 
 }
 
 .active-slide {
@@ -52,20 +101,6 @@ h5 {
     text-align: center;
 }
 
-/* .input {
-      width: 200px;
-  } */
-
-/* body {
-    padding-top: 54px;
-  }
-
-
-  @media (min-width: 992px) {
-    body {
-      padding-top: 56px;
-    }
-  } */
 
 .question {
     font-weight: bold;
@@ -75,36 +110,22 @@ h5 {
     color: #66615b;
 }
 
-.btn-group {
-    text-align: left;
-    font-size: 18px;
-    word-spacing: 2.5px;
-    font-weight: 400;
-}
-
-/* .input-group-btn .btn {
-    border-width: 1px;
-    padding: 9px 18px;
-  } */
-
-.btn-defaultt {
-    border-radius: 15px;
+.btn-carousel {
     background-color: rgb(94, 89, 83);
-    padding: 7px 18px;
     border-color: #66615B;
 }
 
-.btn-primaryy {
+.btn-previous {
     background-color: #7A9E9F;
     border-color: #7A9E9F;
 }
 
-.btn-infoo {
+.btn-next {
     background-color: #68B3C8;
     border-color: #68B3C8;
 }
 
-.btn-dangerr {
+.btn-play {
     background-color: #7AC29A;
     border-color: #7AC29A;
 }
@@ -114,12 +135,9 @@ h5 {
     background-color: #F3BB45;
 }
 
-.btn-defaultt:hover {
-    background-color: #66615B;
-    border-color: #66615B;
-}
 
-.btn-infoo, .btn-dangerr, .btn-defaultt, .btn-primaryy, .btn-successs, .btn-submit {
+
+.btn-next, .btn-play, .btn-carousel, .btn-previous, .btn-submit {
     font-size: 22px;
     font-weight: 400;
     padding: 7px 18px;
@@ -131,27 +149,27 @@ h5 {
     font-family: 'Average Sans', sans-serif;
 }
 
-.btn-infoo:hover, .btn-defaultt:hover, .btn-primaryy:hover, .btn-successs:hover, .btn-submit:hover, .btn-dangerr:hover {
+.btn-next:hover, .btn-carousel:hover, .btn-previous:hover, .btn-submit:hover, .btn-play:hover {
     opacity: .7;
     color: rgba(50, 54, 54, 0.877);
     font-weight: 700;
     font-size: 24px;
     font-family: 'Average Sans', sans-serif;
 }
-
-.btn-infoo:hover {
+.btn-carousel:hover {
+    background-color: #66615B;
+    border-color: #66615B;
+    opacity: .9;
+    color: #ffffff;
+}
+.btn-next:hover {
     background-color: #68B3C8;
     color: rgba(50, 54, 54, 0.877);
 }
 
-.btn-primaryy:hover {
+.btn-previous:hover {
     background-color: #7A9E9F;
     border-color: #7A9E9F;
-}
-
-.btn-successs:hover {
-    background-color: #7AC29A;
-    border-color: #7AC29A;
 }
 
 .btn-submit:hover {
@@ -159,121 +177,34 @@ h5 {
     border-color: #F3BB45;
 }
 
-.btn-dangerr:hover {
+.btn-play:hover {
     background-color: #7AC29A;
     border-color: #7AC29A;
 }
 
-.radio input[type="radio"] {
-    cursor: pointer;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0;
-    filter: alpha(opacity=0);
-    text-align: center;
-}
-
-.radio span:after {
-    content: '';
-    /* width: 15px;
-    height: 15px; */
-    border: 1px solid;
-    position: absolute;
-    left: 0;
-    top: 1px;
-    border-radius: 100%;
-    text-align: center;
-}
-
-.radio input[type="radio"] {
-    cursor: pointer;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0;
-    filter: alpha(opacity=0);
-    text-align: center;
-}
-
-[type="radio"] {
-    /* border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-    text-align: center; */
-}
 
 label {
     display: block;
     cursor: pointer;
     line-height: 1;
     font-size: 1em;
-    text-align: center;
+    text-align: left;
     font-family: 'Average Sans', sans-serif;
     color: #66615b;
-}
-
-[type="radio"]+span {
-    display: block;
-    position: relative;
-    text-align: center;
-    /* padding-left:20px; */
+    
 }
 
 .modalClosed {
     display: none;
 }
 
-/* the checked style using the :checked pseudo class */
-
-.radio1, input[type="radio"]:checked+span {
-    /* left:5px;
-    top:6px; */
-    font-weight: bold;
-    color: rgb(4, 61, 68);
-    text-align: center;
-    font-family: 'Average Sans', sans-serif;
-    color: #66615b;
-}
-
-[type="radio"]:checked+span:before {
-    /* background: rgb(20, 136, 151); */
-    /* box-shadow: 0 0 0 0.12em #000; */
-}
-
-.radio1, input[type="radio"]+span:before {
-    content: '';
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    vertical-align: -0.25em;
-    text-align: center;
-    /* border-radius: 1em;
-    border: 0.125em solid rgb(52, 196, 201);
-    box-shadow: 0 0 0 0.12em #000;
-    margin-right: 0.75em;
-    color: rgb(20, 136, 151); */
-}
 
 .carousel-caption .title, .carousel-caption .info-title {
     color: #FFFFFF;
     z-index: 5;
 }
 
-.form-control, .input-group-addon, .tagsinput, .navbar, .navbar .alert, .carousel-control.right, .carousel-control.left {
-    -webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear;
-    -o-transition: all 300ms linear;
-    -ms-transition: all 300ms linear;
-    transition: all 300ms linear;
-}
+
 
 #carousel {
     padding-top: 70px;

@@ -320,12 +320,10 @@
     }
   ];
 
-
-
   function buildQuiz() {
     // store the HTML output
     let htmlOutput = [];
-    
+
     // for each question...
     easy.forEach((val, i) => {
       // to store the list of answer choices
@@ -334,13 +332,13 @@
       // and for each available answer
       for (letter in val.answers) {
         // ...add a div and radio buttons
-        // <div class="btn-group d-block btn-group-toggle" data-toggle="buttons"></div>
+       
         answers.push(
-          `
-            <label for="radio${i}" class="btn-group d-block"> ${val.answers[letter]}               
-              <input type="radio" id="radio${i}" name="question" value="${letter}">
-            </label>
-          `
+         
+          `<label for="radio${i}" class=" d-block active">
+          <input type="radio" class="option-input radio" id="radio${i}" name="question">
+          ${val.answers[letter]}       
+        </label>`
         );
         i++;
       }
@@ -358,43 +356,40 @@
     quizContainer.innerHTML = htmlOutput.join("");
   }
 
-  function showResults() {
-    console.log(showResults);
-    // get answer containers from trivia
-    const answerContainers = quizContainer.querySelectorAll(".answers");
+   function showResults() {
+        // gather answer containers from our quiz
+        const answerContainers = quizContainer.querySelectorAll(".answers");
 
-    // keep track of answers
-    let numCorrect = 0;
-    let userAnswer = ' ';
+        // keep track of user's answers
+        let numCorrect = 0;
 
-    // for each question...
-    for (var i=0; i < easy.length; i++) {
-      // find selected answer via index
-      // const answerContainer = answerContainers[i];
-      // find the radio button that was selected
-      // const selector = `input[name=question]:checked`;
-     // store users answer based on value of selector
-      userAnswer = (answerContainers[i].querySelector(`input[  name=question]:checked`)||{}).value; 
+        // for each question...
+        easy.forEach((currentQuestion, questionNumber) => {
+            // find selected answer
+            const answerContainer = answerContainers[questionNumber];
+            const selector = `input[name=question${questionNumber}]:checked`;
+            const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
-      // if answer is correct
-      
-      if (userAnswer === easy[i].correctAnswer) {
-        // add to the number of correct answers
-        numCorrect++; 
-        console.log(numCorrect);
-      } else{
-        console.log("no answers were correct");
-      }
+            // if answer is correct
+            if (userAnswer === currentQuestion.correctAnswer) {
+                // add to the number of correct answers
+                numCorrect++;
 
-    // show number of correct answers out of total
-    resultsContainer.innerHTML = `${numCorrect} out of ${easy.length}`;
-      }
- 
-  //hide quiz modal and show results modal
-      $("#quizModal").modal("hide");
-      $("#resultsModal").modal("show");
-  }
-  //reload page if playagain button is clicked
+                // color the answers green
+                answerContainers[questionNumber].style.color = "lightgreen";
+            } else {
+                // if answer is wrong or blank
+                // color the answers red
+                answerContainers[questionNumber].style.color = "red";
+            }
+        });
+
+        // show number of correct answers out of total
+        resultsContainer.innerHTML = `${numCorrect} out of ${easy.length}`;
+        $("#quizModal").modal("hide");
+        $("#resultsModal").modal("show");
+    }
+
     playAgain.addEventListener("click", () => {
         location.reload();
     });
@@ -424,7 +419,7 @@
 
   const quizContainer = document.getElementById("quiz");
   const resultsContainer = document.getElementById("results");
-  const submitButton = document.getElementById("submit");
+      const submitButton = document.getElementById("submit");
 
   // display quiz right away
   buildQuiz();

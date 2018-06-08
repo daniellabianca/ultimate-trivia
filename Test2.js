@@ -351,7 +351,17 @@
         // finally combine our output list into one string of HTML and put it on the page
         quizContainer.innerHTML = output.join("");
     }
+//     <label for="radio${i}" class="btn active">
+//     <input type="radio" class="option-input radio active" id="radio${i}" name="question">
+//     ${val.answers[letter]} 
+                    
+//   </label>
 
+//   <div class="btn-group btn-group-toggle d-block" data-toggle="buttons">
+
+//           <label for="radio${i}" class="btn btn-primary active "> ${val.answers[letter]}               
+//             <input type="radio" class="d-block" autocomplete="off" id="radio${i}" name="question" value="${letter}">
+//           </label></div>       
     function showResults() {
         // gather answer containers from our quiz
         const answerContainers = quizContainer.querySelectorAll(".answers");
@@ -439,3 +449,28 @@
     nextButton.addEventListener("click", showNextSlide);
 
 })();
+
+
+$("#next").on('click', function() {
+      
+      if (currentSlide  > 0) {
+      $("#bar").width('5%');
+       } if (currentSlide > 1){
+      $("#bar").width('10%');
+        } if (currentSlide > 2){
+      $("#bar").width('20%');
+         } if (currentSlide > 3){
+      $("#bar").width('30%');
+         } if (currentSlide > 4){
+      $("#bar").width('40%');
+         } if (currentSlide > 5){
+      $("#bar").width('50%');
+         } if (currentSlide > 6){
+      $("#bar").width('60%');
+         } if (currentSlide > 7){
+      $("#bar").width('70%');
+         } if (currentSlide > 8){
+          $("#bar").width('80%');
+        } if (currentSlide > 9){
+          $("#bar").width('90%');
+        } });
