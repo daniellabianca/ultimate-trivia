@@ -1,6 +1,6 @@
 
 
-// Code assistance for radio buttons from https://codepen.io/wilder_taype/pen/pNXwMW. 
+// Code assistance for radio buttons from https://codepen.io/wilder_taype/pen/pNXwMW.
 // Functions adapted from https://codepen.io/SitePoint/pen/GmPjjL.
 // Misc codes adapted from MDN.
 
@@ -325,6 +325,8 @@
     }
   ];
 
+// Create a variable called 'level' that could be toggled between easy, tough and impossible based on what button the user selects. Then replace all the hardcoded "impossible" arrays from below with the new 'level' var and you've scaled your code to three different versions!
+
   function startTrivia() {
     let htmlOutput = [];
     impossible.forEach((val, i) => {
@@ -333,7 +335,7 @@
         answers.push(
           `<label for="radio${i}" class=" d-block">
        <input type="radio" class="option-input radio" id="radio${i}" name="question" value="${val.answers[letter]}">
-       ${val.answers[letter]}       
+       ${val.answers[letter]}
         </label>`
         );
         i++;
@@ -363,11 +365,13 @@
 
   function showScore() {
     const triviaResults = triviaContainer.querySelectorAll(".answers");
+    // this conditional only cares for answers that are less than 7, and greater than 7, but what happens if they get 7 exactly? Try using a >=
     if (rightAnswers > 7) {
       resultsContainer.innerHTML = `You have ${rightAnswers} correct answers out of ${impossible.length}. \n \n Outstanding!`;
     } if (rightAnswers < 7) {
       resultsContainer.innerHTML = `You have ${rightAnswers} correct answers out of ${impossible.length}. \n \n Keep trying!`;
     }
+
     $("#triviaModal").modal("hide");
     $("#resultsModal").modal("show");
 
@@ -424,5 +428,3 @@
   nextButton.addEventListener("click", showNextQuestion);
 
 })();
-
-
