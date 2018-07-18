@@ -1,5 +1,5 @@
 
-(function () {
+
     const tough = [
         {
             question: "Who coined the word 'New England'?",

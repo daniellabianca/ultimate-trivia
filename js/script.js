@@ -1,11 +1,6 @@
+//TODO: removed global variable. make game work without it.   
 
-
-// Code assistance for radio buttons from https://codepen.io/wilder_taype/pen/pNXwMW. 
-// Functions adapted from https://codepen.io/SitePoint/pen/GmPjjL.
-// Misc codes adapted from MDN.
-
-
-(function () {
+//FIXME: put game variables in separate JS files. 
   const easy = [
     {
       question: "What country owns every panda in the world?",
@@ -219,7 +214,6 @@
       correctAnswer: "a"
     }
   ];
-
   const impossible = [
     {
       question: "Nephophobia is a fear of __:",
@@ -325,11 +319,14 @@
     }
   ];
 
+
+//TODO: split function into smaller functions
   function startTrivia() {
     let htmlOutput = [];
     impossible.forEach((val, i) => {
       let answers = [];
       for (letter in val.answers) {
+//TODO: can label and input be hard-coded?
         answers.push(
           `<label for="radio${i}" class=" d-block">
        <input type="radio" class="option-input radio" id="radio${i}" name="question" value="${val.answers[letter]}">
@@ -338,6 +335,8 @@
         );
         i++;
       }
+
+//TODO: can div and form be hard-coded?
       htmlOutput.push(
         `<div class="slide ">
                <div class="question align-middle d-block"> ${val.question} </div>
@@ -346,8 +345,6 @@
       );
       triviaContainer.innerHTML = htmlOutput.join("");
     });
-
-
     var form = document.querySelectorAll(`form`);
     for (i = 0; i < form.length; i++) {
       let currentForm = form[i];
@@ -357,7 +354,7 @@
       })
     }
   }
-
+//FIXME: remove global variable
   let currentAnswer = '';
   let rightAnswers = 0;
 
@@ -382,14 +379,14 @@
     if (currentAnswer === answer) {
       rightAnswers++;
     }
-
+//TODO: create separate function for slides
     slides[activeSlide].classList.remove("active-slide");
     slides[n].classList.add("active-slide");
     activeSlide = n;
+//TODO: create separate function for buttons
     if (activeSlide > 0) {
       previousButton.style.display = "inline-block";
     }
-
     if (activeSlide === slides.length - 1) {
       nextButton.style.display = "none";
       submitButton.style.display = "inline-block";
@@ -404,25 +401,25 @@
     showQuestions(activeSlide - 1);
   }
 
-
+//FIXME: remove global variables
   const triviaContainer = document.getElementById("trivia");
   const resultsContainer = document.getElementById("results");
-  const submitButton = document.getElementById("submit");
-
+const submitButton = document.getElementById("submit");
+  
+//FIXME: move as a callback function inside another function?
   startTrivia();
-
+//FIXME: remove global variables
   const previousButton = document.getElementById("previous");
   const nextButton = document.getElementById("next");
   const slides = document.querySelectorAll(".slide");
   let activeSlide = 0;
-
+//FIXME: move as a callback function inside another function?
   showQuestions(0);
 
-
+//FIXME: tie event listeners to appropriate functions
   submitButton.addEventListener("click", showScore);
   previousButton.addEventListener("click", showPreviousQuestion);
   nextButton.addEventListener("click", showNextQuestion);
 
-})();
 
 
