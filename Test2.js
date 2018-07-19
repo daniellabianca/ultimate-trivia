@@ -448,7 +448,6 @@
     previousButton.addEventListener("click", showPreviousSlide);
     nextButton.addEventListener("click", showNextSlide);
 
-})();
 
 
 $("#next").on('click', function() {
