@@ -1,4 +1,4 @@
-const easy = [
+const $easy = [
   {
     question: "What country owns every panda in the world?",
     answers: {

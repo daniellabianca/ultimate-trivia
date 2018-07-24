@@ -117,96 +117,105 @@
                 </div>
                 <div class="trivia-container">
                     <div class="modal-body" id="trivia">
-                    </div>
-                </div>
+                        <div class="slide">
+                            <form class="answers align-middle d-block">
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-previous btn-lg btn-fill" id="previous"> Previous Question</button>
-                    <button type="button" class="btn btn-next btn-lg btn-fill" id="next">Next Question</button>
-                    <button type="submit" class="btn-submit btn-lg btn-fill" data-dismiss="exampleModel" data-toggle="resultsModal" id="submit">Submit Answer</button>
+                                <label for="radioa" class="radioa d-block"></label>
+                                <label for="radiob" class="radiob d-block"></label>
+                                <label for="radioc" class="radioc d-block"></label>
+                                <label for="radiod" class="radiod d-block"></label>
+                          
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-previous btn-lg btn-fill" id="previous"> Previous Question</button>
+                        <button type="button" class="btn btn-next btn-lg btn-fill" id="next">Next Question</button>
+                        <button type="submit" class="btn-submit btn-lg btn-fill" data-dismiss="exampleModel" data-toggle="resultsModal" id="submit">Submit Answer</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 
-    <div class="modal fade bg-secondary" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="resultsModal" aria-hidden="true">
-        <div class="modal-overlay" id="modal-overlay">
-        </div>
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-center" id="resultsModal">Progress</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="trivia-container">
-                    <div class="modal-body" id="results">
-
+        <div class="modal fade bg-secondary" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="resultsModal" aria-hidden="true">
+            <div class="modal-overlay" id="modal-overlay">
+            </div>
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" id="resultsModal">Progress</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                </div>
-                <div class="modal-footer">
+                    <div class="trivia-container">
+                        <div class="modal-body" id="results">
 
-                    <button type="button" class="btn btn-play btg-lg btn-fill" id="playAgain">Play a New Game </button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-play btg-lg btn-fill" id="playAgain">Play a New Game </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 
-    <footer class="page-footer mt-4">
-        <div class="container-fluid-footer">
-            <div class="row">
-                <div class="col-md-12 pt-5">
-                    <div class="mb-5 d-flex justify-content-center">
-                        <a href="#" class="fb-ic">
-                            <i class="fab fa-facebook white fa-fw fa-3x"> </i>
-                        </a>
-                        <a href="#" class="tw-ic">
-                            <i class="fab fa-twitter white fa-fw fa-3x"> </i>
-                        </a>
-                        <a href="#" class="gplus-ic">
-                            <i class="fab fa-google-plus white fa-fw fa-3x"> </i>
-                        </a>
-                        <a href="#" class="li-ic">
-                            <i class="fab fa-linkedin  white fa-fw fa-3x"> </i>
-                        </a>
-                        <a href="#" class="ins-ic">
-                            <i class="fab fa-instagram  white fa-fw fa-3x"> </i>
-                        </a>
-                        <a href="#" class="pin-ic">
-                            <i class="fab fa-pinterest  white fa-fw fa-3x"> </i>
-                        </a>
+        <footer class="page-footer mt-4">
+            <div class="container-fluid-footer">
+                <div class="row">
+                    <div class="col-md-12 pt-5">
+                        <div class="mb-5 d-flex justify-content-center">
+                            <a href="#" class="fb-ic">
+                                <i class="fab fa-facebook white fa-fw fa-3x"> </i>
+                            </a>
+                            <a href="#" class="tw-ic">
+                                <i class="fab fa-twitter white fa-fw fa-3x"> </i>
+                            </a>
+                            <a href="#" class="gplus-ic">
+                                <i class="fab fa-google-plus white fa-fw fa-3x"> </i>
+                            </a>
+                            <a href="#" class="li-ic">
+                                <i class="fab fa-linkedin  white fa-fw fa-3x"> </i>
+                            </a>
+                            <a href="#" class="ins-ic">
+                                <i class="fab fa-instagram  white fa-fw fa-3x"> </i>
+                            </a>
+                            <a href="#" class="pin-ic">
+                                <i class="fab fa-pinterest  white fa-fw fa-3x"> </i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-copyright d-flex justify-content-center">
+                        <p class="cRight">© 2018 Copyright: Dani Colangelo
+                            <a href="#">Here I Am</a>
+                        </p>
                     </div>
                 </div>
-
-                <div class="footer-copyright d-flex justify-content-center">
-                    <p class="cRight">© 2018 Copyright: Dani Colangelo
-                        <a href="#">Here I Am</a>
-                    </p>
-                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
 
-    <script src="js/easy.js"></script>
-    <!-- required by script.js -->
-    <script src="js/tough.js"></script>
-    <!-- required by script.js -->
-    <script src="js/impossible.js"></script>
-    <!-- required by script.js -->
-    <script src="js/script.js"></script>
+        <script src="js/easy.js"></script>
+        <!-- required by script.js -->
+        <script src="js/tough.js"></script>
+        <!-- required by script.js -->
+        <script src="js/impossible.js"></script>
+        <!-- required by script.js -->
+        <script src="js/script.js"></script>
 </body>
 
 </html>

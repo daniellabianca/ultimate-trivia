@@ -6,141 +6,90 @@
  *  - impossible.js
  */
 
-//TODO: create functionality for multiple levels
+let $level;
 
-//TODO: split function into smaller functions
+let rightAnswers = 0;
+let activeSlide = 0;
+let n = 0;
+let currentAnswer = "";
 
-function createAnswerList(val, i) {
-  let answers = [];
-  easy.forEach((val, i) => {
-    for (letter in val.answers) {
-      //TODO: can label and input be hard-coded?
-      answers.push(`<label for="radio${i}" class=" d-block">
-       <input type="radio" class="option-input radio" id="radio${i}" name="question" value="${
-        val.answers[letter]
-      }">
-       ${val.answers[letter]}       
-        </label>`);
-      i++;
-    }
-  });
-  console.log("answer list works");
-}
+$("#easyMode").on("click", () => {
+  $level = $easy;
+  startGame();
+  console.log('easymod');
+});
+
+$("#toughMode").on("click", () => {
+  $level = tough;
+  startGame();
+});
+
+$("#impossibleMode").on("click", () => {
+  $level = impossible;
+  startGame();
+});
+
+ 
 
 function createQuestionList() {
-  let htmlOutput = [];
-  easy.forEach((val, i, answers) => {
-    for (letter in val.answers) {
-      //TODO: can div and form be hard-coded?
-      htmlOutput.push(`<div class="slide ">
-               <div class="question align-middle d-block"> ${
-                 val.question
-               } </div>
-               <form class="answers align-middle d-block form-${i}"> ${answers.join(
-        ""
-      )} </form>
-             </div>`);
-      console.log("push quesions");
-    }
-  });
-  $("#trivia").html(htmlOutput.join(""));
-  console.log("question list works");
-}
 
-$("#easyMode").click(startTrivia => {
-  createAnswerList();
+  for (i = 0; i < $level.length; i++) {
+    $(".modal-body").append(`<div class="question">${$level[i].question} </div>`);
+  
+ 
+    $(".modal-body").append(`<input type="radio" class="option-input radio" id="radio">${$level[i].answers.a}</div>`);
+    $(".modal-body").append(`<input type="radio" class="option-input radio">${$level[i].answers.b}</div>`);
+    $(".modal-body").append(`<input type="radio" class="option-input radio">${$level[0].answers.c}</div>`);
+    $(".modal-body").append(`<input type="radio" class="option-input radio">${$level[0].answers.d}</div>`);
+
+    console.log($level[0].answers.a)
+  }
+  
+
+    console.log("question list works");
+  }
+
+$("#next").click(e => {
   createQuestionList();
-
-  // var form = document.querySelectorAll(`form`);
-  // for (i = 0; i < form.length; i++) {
-  //   let currentForm = form[i];
-  //   currentForm.addEventListener("change", function(e) {
-  //     let data = new FormData(currentForm);
-  //     Array.from(data.values()).forEach(value => (currentAnswer = value));
-  //   });
-  // }
-  easyQ();
 });
+
+function startGame() {
+  console.log('start game');
+      // createAnswerList();
+      createQuestionList();
+      // showQuestions();
+  console.log("start game2");
+    };
 
 //FIXME: remove global variable
 
-let rightAnswers = 0;
 
 $(".submit").submit(e => {
-  // const triviaResults = triviaContainer.querySelectorAll(".answers");
+  const triviaResults = triviaContainer.querySelectorAll(".answers");
   if (rightAnswers > 7) {
     $("#results").text(
       `You have ${rightAnswers} correct answers out of ${
-        impossible.length
+        $level.length
       }. \n \n Outstanding!`
     );
   }
   if (rightAnswers < 7) {
     $("#results").text(
       `You have ${rightAnswers} correct answers out of ${
-        impossible.length
+        $level.length
       }. \n \n Keep trying!`
     );
   }
   $("#triviaModal").modal("hide");
   $("#resultsModal").modal("show");
 
-  playAgain.addEventListener("click", () => {
+  $('#playAgain').on("click", () => {
     location.reload();
   });
 });
 
-function createSlides($n, $activeSlide) {
-  $(".slide");
-  console.log("slide");
-  $([$activeSlide]).removeClass("activeSlide");
-  console.log("remove");
-  $([$n]).addClass("activeSlide");
-  console.log("add");
-  $activeSlide = $n;
-  console.log("slides created");
-}
 
-function easyQ() {
-  let $activeSlide = 0;
-  let currentAnswer = "";
-  for (i = 0; i < easy.length; i++) {
-    const easyQ = easy[i].correctAnswer;
-    let currentQuestion = easy[$activeSlide];
-    let answer = currentQuestion[easyQ];
 
-    if (currentAnswer === answer) {
-      rightAnswers++;
-    }
-    if ($activeSlide > 0) {
-      $("#previous").css("display", "inline-block");
-    }
-    if ($activeSlide === $(".slide").length - 1) {
-      $("#next").hide();
-      $("#submit").css("display", "inline-block");
-    }
-  }
-  console.log(easyQ, easy);
 
-  showQuestions();
-}
-function showQuestions() {
-  let $activeSlide = 0;
-  console.log("test2");
-  //TODO: create separate function for slides -- classlist error when global variable removed
-  createSlides();
-  console.log(createSlides);
-  //TODO: create separate function for buttons
-}
-
-$("#next").click(activeSlide => {
-  showQuestions(activeSlide + 1);
-});
-
-$("#previous").click(activeSlide => {
-  showQuestions(activeSlide - 1);
-});
-
-//FIXME: remove global variables
 const triviaContainer = document.getElementById("trivia");
 
